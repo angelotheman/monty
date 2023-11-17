@@ -26,6 +26,7 @@ void free_stack(stack_t **stack)
 
 void push_func(stack_t **stack, unsigned int line_num, int val)
 {
+	int mode = 0;
 	stack_t *curr;
 	stack_t *new_node = malloc(sizeof(stack_t));
 
@@ -111,4 +112,28 @@ void pint_func(stack_t **stack, unsigned int line_num)
 		printf("%d\n", curr->n);
 		curr = curr->next;
 	}
+}
+
+/**
+  * swap_func - Function to swap two elements of the stack
+  * @stack: Stack to be swapped
+  * @line_num: Line number of the file
+  */
+
+void swap_func(stack_t **stack, unsigned int line_num)
+{
+	int n1, n2;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_num);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
+
+	n1 = (*stack)->n;
+	n2 = (*stack)->next->n;
+
+	(*stack)->n = n2;
+	(*stack)->next->n = n1;
 }

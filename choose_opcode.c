@@ -16,6 +16,7 @@ int choose_opcode(char **tokens, stack_t **stack, unsigned int line_number)
 		{"pint", pint_func},
 		{"nop", nop_func},
 		{"pop", pop_func},
+		{"swap", swap_func},
 		{NULL, NULL}
 	};
 
