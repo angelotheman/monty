@@ -1,5 +1,4 @@
 #include "monty.h"
-int mode = 0;
 
 /**
   * free_stack - function to free the stack
